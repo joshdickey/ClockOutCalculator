@@ -64,7 +64,7 @@ class timeCalculator:
 
     def leaveTime(self):       
         #subtract worked time from total time 
-        now = input('what time was the last time you punched in? ' )
+        now = input('What time was the last time you punched in? ' )
         upDatedTime = self.tConvertToTime(now)
     
         print ('\nTime clocked in:\n%10s' % (str(timedelta(minutes = upDatedTime))))
@@ -88,7 +88,7 @@ def main():
        
         print()
         print ('It is Now:\n%10s'  % (datetime.now().strftime('%X')))
-        print ('I go home today at:\n%10s ' % (timeCard.leaveTime()))
+        print ('You can go home today at:\n%10s ' % (timeCard.leaveTime()))
 		
 		
         key = input('\nPress Y to calculate again or Q to quit: ')
