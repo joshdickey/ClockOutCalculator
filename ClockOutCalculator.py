@@ -32,20 +32,27 @@ class timeCalculator:
         weekDay = date.weekday(datetime.now())
         
         #subtract the amount of hours needed for an 8 hr workday, depending on what day of the week it is, to calculate how many hours need to be worked today. 
-        if weekDay == 0:
-            remaning = (8 * 60) - int(self.currentWorked)
-        elif weekDay == 1:
-            remaning = (16 * 60) - int(self.currentWorked)
-        elif weekDay == 2:
-            remaning = (24 * 60) - int(self.currentWorked)
-        elif weekDay == 3:
-            remaning = (32 * 60) - int(self.currentWorked)
-        elif weekDay == 4:
-            remaning = (40 * 60) - int(self.currentWorked)
-        else:  
-            remaining = 0
-            print ('Why are you working on a weekend?')
-        
+        # if weekDay == 0:
+            # remaning = (8 * 60) - int(self.currentWorked)
+        # elif weekDay == 1:
+            # remaning = (16 * 60) - int(self.currentWorked)
+        # elif weekDay == 2:
+            # remaning = (24 * 60) - int(self.currentWorked)
+        # elif weekDay == 3:
+            # remaning = (32 * 60) - int(self.currentWorked)
+        # elif weekDay == 4:
+            # remaning = (40 * 60) - int(self.currentWorked)
+        # else:  
+            # remaining = 0
+            # print ('Why are you working on a weekend?')
+        hrsToSubtract = { 0 : (8 * 60) - int(self.currentWorked),
+                          1 : (16 * 60) - int(self.currentWorked),
+                          2 : (24 * 60) - int(self.currentWorked),
+                          3 : (32 * 60) - int(self.currentWorked),
+                          4 : (40 * 60) - int(self.currentWorked)
+                        }		
+	
+        remaning = hrsToSubtract[weekDay]
         # see if I had a lunch break(before noon), if not, add 30 min to remaining time 
         now = datetime.now()
         noon = now.replace(hour=12, minute=0, second=0, microsecond=0) 
